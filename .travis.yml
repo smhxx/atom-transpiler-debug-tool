@@ -4,6 +4,10 @@ language: node_js
 node_js:
   - node
 
+env:
+  global:
+    - secure: fLLVEMEHUcwv+mNROvUhypJWIlRAvFLtgpxpMMQkrAUZf8ktGfVhaHhoLlBm3LrUyKkOWBg0hsVkFuwc0uwz3zYwz8uMKmpLXdc/tVpwEHpbJiH+IFaPA+aKfEuVaUzHNUtTN2xfwoKw2mq9IhWq1mao2UeLuL3Te12DzQTJZmE/tS3YOyj22IkllDWeSUsOpBzJZVczFUTR5L1+Cg7ATjYKaazZET9ZT1jw1zWbkSrz2R5daMi2wJpQQx6pTr9cINc40rQqL/UYpyKZR4qRbspVC1LFxbN6B04fwqe02FTOocmjUF/p6AAZywkRjLVTcs9qoTvseSjBAlTgNbyhbA86VsM1iXLQLEIa5UpiHKpvQ9hTerimCsaySlV0uScwDZh4wFwh6lvq1OmNo27BbWFrypRPmzFfREi1LXpBlwXVfuqyUU9+RsT/QTeJgY7i2M+v+4G/rFDmIPV7UMJzR9Phx1BVvZSa1Y3ZJG9bVpjYGA9jsQtalbTKnUF/0N9cASbMX7zYMPwxILUMVu0r1w400XyRL+KamiR2kSi8USn9OuDiRyT37eL+VDJK7D4QB8h68WuNHasxeF96R+b2ruW9DwwP1ATcPnYhA/Rzxp3moy4I3xPbtoMgLubi4eADq9i0Fce+YlyvfFRtNSRkR/eOBhfGtpNVq0PZijN4Ymo=
+
 cache:
   directories:
     - node_modules
@@ -17,5 +21,14 @@ notifications:
     on_success: change
     on_failure: always
 
+before_install:
+  - npm install -g greenkeeper-lockfile
+
+before_script:
+  - greenkeeper-lockfile-update
+
 script:
   - npm run lint
+
+after_script:
+  - greenkeeper-lockfile-upload
