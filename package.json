@@ -1,0 +1,39 @@
+{
+  "name": "atom-transpiler-debug-tool",
+  "version": "1.0.0",
+  "description": "A debug utility for packages using Atom's \"custom transpiler\" feature",
+  "author": "smhxx <captaintrek@gmail.com>",
+  "bin": "dist/index.js",
+  "keywords": [
+    "atom",
+    "transpile",
+    "transpiler",
+    "debug",
+    "tool",
+    "utility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smhxx/atom-transpiler-debug-tool.git"
+  },
+  "scripts": {
+    "build": "tsc -p src/tsconfig.json",
+    "lint": "tslint -p src/tsconfig.json --type-check",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "glob": "^7.1.2",
+    "resolve": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^0.4.31",
+    "@types/glob": "^5.0.33",
+    "@types/node": "^8.0.31",
+    "@types/resolve": "^0.0.4",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.3.0",
+    "typescript": "^2.5.3"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,9 @@
+/.git
+/.github
+/node_modules
+/src
+/.editorconfig
+/.gitattributes
+/.gitignore
+/.travis.yml
+/tslint.json
