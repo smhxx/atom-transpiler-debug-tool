@@ -10,6 +10,8 @@ function logAll(iterator: Readonly<Iterable<string>>, style?: chalk.ChalkChain) 
   }
 }
 
+const denormalize = (path: string) => path.replace(/\\/g,'/');
+
 const projectDir = new Directory();
 const matchInfo = Transpiler.getGlobMatchInfo();
 const unmatched = projectDir.getUnmatchedDescendants(matchInfo.matches);
@@ -24,8 +26,8 @@ if (matchInfo.conflicts.size > 0) {
 
 if (unmatched.directories.size > 0 || unmatched.files.size > 0) {
   console.log('The following directories and files were not matched by any glob:');
-  logAll(Array.from(unmatched.directories).map(d => `${d.path.replace('\\','/')}/`), chalk.gray);
-  logAll(Array.from(unmatched.files).map(f => f.replace('\\','/')), chalk.gray);
+  logAll(Array.from(unmatched.directories).map(d => `${denormalize(d.path)}/`), chalk.gray);
+  logAll(Array.from(unmatched.files).map(denormalize), chalk.gray);
   console.log('');
 }
 

@@ -19,10 +19,11 @@ interface GlobMatchInfo {
 
 function compileMatchInfo(accumulator: GlobMatchInfo, matches: string[]): GlobMatchInfo {
   for (const match of matches) {
-    if (accumulator.matches.has(match)) {
-      accumulator.conflicts.add(match);
+    const normPath = path.normalize(match);
+    if (accumulator.matches.has(normPath)) {
+      accumulator.conflicts.add(normPath);
     } else {
-      accumulator.matches.add(match);
+      accumulator.matches.add(normPath);
     }
   }
   return accumulator;
@@ -55,7 +56,8 @@ export default class Transpiler {
     const matches = [] as FileMatch[];
     const matchPaths = glob.sync(this.glob, { nodir: true });
     for (const matchPath of matchPaths) {
-      matches.push(new FileMatch(matchPath, this.provideHash));
+      const normPath = path.normalize(matchPath);
+      matches.push(new FileMatch(normPath, this.provideHash));
     }
     this.matches = Object.freeze(matches);
   }

@@ -12,6 +12,7 @@ type HashProvider = (match: FileMatch) => string;
 
 export default class FileMatch {
   readonly path: string;
+  readonly displayPath: string;
   readonly source: string;
   readonly cacheKey: string;
   readonly isCached: boolean;
@@ -19,13 +20,14 @@ export default class FileMatch {
 
   constructor(path: string, getHash: HashProvider) {
     this.path = path;
+    this.displayPath = path.replace(/\\/g,'/');
     this.source = readFileSync(path, 'utf8').toString();
     this.cacheKey = getHash(this);
     this.isCached = Package.cachedFiles.has(this.cacheKey);
     this.listing = this.isCached ?
       (len: number) =>
-        `${chalk.yellow('C')} ${pad(this.path, len)} ${chalk.green(this.cacheKey)}` :
+        `${chalk.yellow('C')} ${pad(this.displayPath, len)} ${chalk.green(this.cacheKey)}` :
       (len: number) =>
-        `${chalk.gray(`- ${pad(this.path, len)}`)} ${chalk.red(this.cacheKey)}`;
+        `${chalk.gray(`- ${pad(this.displayPath, len)}`)} ${chalk.red(this.cacheKey)}`;
   }
 }

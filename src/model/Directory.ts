@@ -28,7 +28,7 @@ export default class Directory {
       const childAbsPath = path.join(absPath, child);
       const stat = fs.statSync(childAbsPath);
       if (stat.isDirectory()) {
-        directories.add(new Directory(path.join(relPath, child)));
+        directories.add(new Directory(childRelPath));
       } else if (stat.isFile()) {
         files.add(childRelPath);
       }
@@ -36,29 +36,29 @@ export default class Directory {
     this.children = { files, directories };
   }
 
-  getUnmatchedDescendants(paths: Readonly<Set<string>>): MutableDescendants {
+  getUnmatchedDescendants(matchedPaths: Readonly<Set<string>>): MutableDescendants {
     const files = new Set<string>();
     const directories = new Set<Directory>();
     for (const childDir of this.children.directories as Set<Directory>) {
-      for (const childFile of this.children.files as Set<string>) {
-        if (!paths.has(childFile)) {
-          files.add(childFile);
-        }
-      }
-      if (childDir.hasMatch(paths)) {
-        const unmatched = childDir.getUnmatchedDescendants(paths);
+      if (childDir.hasMatch(matchedPaths)) {
+        const unmatched = childDir.getUnmatchedDescendants(matchedPaths);
         unmatched.files.forEach(f => files.add(f));
         unmatched.directories.forEach(d => directories.add(d));
       } else {
         directories.add(childDir);
       }
     }
+    for (const childFile of this.children.files as Set<string>) {
+      if (!matchedPaths.has(childFile)) {
+        files.add(childFile);
+      }
+    }
     return { files, directories };
   }
 
-  private hasMatch(paths: Readonly<Set<string>>): boolean {
-    for (const path of paths as Set<string>) {
-      if (path.startsWith(this.path)) {
+  private hasMatch(matchedPaths: Readonly<Set<string>>): boolean {
+    for (const matchedPath of matchedPaths as Set<string>) {
+      if (matchedPath.startsWith(this.path)) {
         return true;
       }
     }
