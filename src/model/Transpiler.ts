@@ -34,8 +34,7 @@ export default class Transpiler {
   readonly name: string;
   readonly path: string;
   readonly source: string;
-  readonly options: any;
-  readonly meta: PackageMeta;
+  readonly options: object = {};
   readonly module: CacheKeyProvider;
   readonly matches: ReadonlyArray<FileMatch>;
   readonly header: (index: number, max: number) => string;
@@ -46,12 +45,14 @@ export default class Transpiler {
     this.name = listing.transpiler;
     this.glob = listing.glob;
     this.path = resolve.sync(this.name, {
-      basedir: Package.base,
+      basedir: Package.path,
       extensions: Object.keys(require.extensions),
     });
     this.source = fs.readFileSync(this.path).toString();
-    this.options = JSON.stringify(listing.options !== undefined ? listing.options : {});
     this.module = require(this.path);
+    if (listing.options !== undefined) {
+      this.options = listing.options;
+    }
 
     const matches = [] as FileMatch[];
     const matchPaths = glob.sync(this.glob, { nodir: true });
@@ -124,11 +125,11 @@ ${chalk.gray('------------------------------------------------------------------
   }
 
   private getCacheKeyDataForMatch = (file: FileMatch) =>
-    this.module.getCacheKeyData(file.source, path.resolve(file.path), this.options, this.meta)
+    this.module.getCacheKeyData(file.source, path.resolve(file.path), this.options, Package.meta)
 
   provideHash = (match: FileMatch) =>
     crypto.createHash('sha1')
-    .update(this.options)
+    .update(JSON.stringify(this.options))
     .update(this.source, 'utf8')
     .update(match.source, 'utf8')
     .update(this.getCacheKeyDataForMatch(match), 'utf8')

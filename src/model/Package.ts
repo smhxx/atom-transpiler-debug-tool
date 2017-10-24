@@ -5,8 +5,8 @@ import { join, resolve } from 'path';
 import { AtomPackageConfig, PackageMeta } from '../defs';
 
 export namespace Package {
-  export const base: string = resolve();
-  export const path: string = resolve('package.json');
+  export const path: string = resolve();
+  export const configPath: string = resolve('package.json');
   export const config: Readonly<AtomPackageConfig> = resolveConfig();
   export const name: string = Package.config.name;
   export const cachedFiles: Readonly<Set<string>> = getCachedFiles();
@@ -18,8 +18,10 @@ export namespace Package {
 }
 
 function resolveConfig(): Readonly<AtomPackageConfig> {
-  assert(statSync(Package.path).isFile());
-  return Object.freeze(JSON.parse(readFileSync(Package.path).toString()));
+  assert(statSync(Package.configPath).isFile());
+  const configData = JSON.parse(readFileSync(Package.configPath).toString());
+  configData._id = `${configData.name}@${configData.version}`;
+  return Object.freeze(configData);
 }
 
 function getCachedFiles(): Set<string> {

@@ -81,6 +81,7 @@ export namespace AtomPackageConfig {
 }
 
 export interface AtomPackageConfig extends PackageConfig {
+  readonly id?: string;
   readonly atomTranspilers?: ReadonlyArray<AtomPackageConfig.TranspilerListing>;
 }
 
