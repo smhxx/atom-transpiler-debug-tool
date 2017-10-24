@@ -23,7 +23,7 @@ Then in your package.json file, add a script:
 }
 ```
 
-Now you can `npm run debug` from your package's root directory and the debug information will be printed to stdout!
+Now you can `npm run debug` from your package's root directory and the debug information will be printed to stdout! Alternatively, you can install globally with `npm install -g atom-transpiler-debug-tool` and then invoke `atom-transpiler-debug-tool` from your package directory.
 
 ## License
 
