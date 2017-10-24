@@ -25,12 +25,16 @@ function resolveConfig(): Readonly<AtomPackageConfig> {
 function getCachedFiles(): Set<string> {
   const base = resolve(homedir(), `.atom/compile-cache/package-transpile`);
   const cacheDir = join(base, Package.name);
-  assert(statSync(cacheDir).isDirectory());
-  const cachedFiles = new Set<string>();
-  for (const file of readdirSync(cacheDir)) {
-    if (statSync(join(cacheDir, file)).isFile()) {
-      cachedFiles.add(file);
+  try {
+    assert(statSync(cacheDir).isDirectory());
+    const cachedFiles = new Set<string>();
+    for (const file of readdirSync(cacheDir)) {
+      if (statSync(join(cacheDir, file)).isFile()) {
+        cachedFiles.add(file);
+      }
     }
+    return cachedFiles;
+  } catch (err) {
+    return new Set<string>();
   }
-  return cachedFiles;
 }
