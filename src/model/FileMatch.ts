@@ -8,6 +8,8 @@ function pad(str: string, len: number): string {
   return `${str}${pad}`;
 }
 
+type HashProvider = (match: FileMatch) => string;
+
 export default class FileMatch {
   readonly path: string;
   readonly source: string;
@@ -15,19 +17,15 @@ export default class FileMatch {
   readonly isCached: boolean;
   readonly listing: (pad: number) => string;
 
-  constructor(path: string, getHash: (match: FileMatch) => string) {
+  constructor(path: string, getHash: HashProvider) {
     this.path = path;
     this.source = readFileSync(path, 'utf8').toString();
     this.cacheKey = getHash(this);
     this.isCached = Package.cachedFiles.has(this.cacheKey);
-    this.listing = this.createListing(this.cacheKey);
-  }
-
-  private createListing(cacheKey: string): (pad: number) => string {
-    return this.isCached ?
+    this.listing = this.isCached ?
       (len: number) =>
-        `${chalk.yellow('C')} ${pad(this.path, len)} ${chalk.green(cacheKey)}` :
+        `${chalk.yellow('C')} ${pad(this.path, len)} ${chalk.green(this.cacheKey)}` :
       (len: number) =>
-        `${chalk.gray(`  ${pad(this.path, len)}`)} ${chalk.red(cacheKey)}`;
+        `${chalk.gray(`- ${pad(this.path, len)}`)} ${chalk.red(this.cacheKey)}`;
   }
 }

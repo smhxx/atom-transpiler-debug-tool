@@ -122,7 +122,7 @@ ${chalk.gray('------------------------------------------------------------------
   }
 
   private getCacheKeyDataForMatch = (file: FileMatch) =>
-    this.module.getCacheKeyData(file.source, path.resolve(this.path), this.options, this.meta)
+    this.module.getCacheKeyData(file.source, path.resolve(file.path), this.options, this.meta)
 
   provideHash = (match: FileMatch) =>
     crypto.createHash('sha1')
