@@ -1,6 +1,6 @@
 {
   "name": "atom-transpiler-debug-tool",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A debug utility for packages using Atom's \"custom transpiler\" feature",
   "author": "smhxx <captaintrek@gmail.com>",
   "bin": "dist/index.js",
