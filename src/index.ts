@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import chalk = require('chalk');
+import { default as chalk, Chalk } from 'chalk';
 import Directory from './model/Directory';
 import Transpiler from './model/Transpiler';
 import { Package } from './model/Package';
 
-function logAll(iterator: Readonly<Iterable<string>>, style?: chalk.ChalkChain) {
+function logAll(iterator: Readonly<Iterable<string>>, style?: Chalk) {
   for (const str of iterator as Iterable<string>) {
     console.log(style === undefined ? str : `${style(str)}`);
   }

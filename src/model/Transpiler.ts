@@ -1,5 +1,5 @@
 import glob = require('glob');
-import chalk = require('chalk');
+import chalk from 'chalk';
 import * as crypto from 'crypto';
 import * as fs from 'fs';
 import * as path from 'path';

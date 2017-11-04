@@ -1,4 +1,4 @@
-import chalk = require('chalk');
+import chalk from 'chalk';
 import { readFileSync } from 'fs';
 import { Package } from './Package';
 

@@ -22,12 +22,11 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "chalk": "^2.1.0",
+    "chalk": "^2.2.0",
     "glob": "^7.1.2",
     "resolve": "^1.4.0"
   },
   "devDependencies": {
-    "@types/chalk": "^0.4.31",
     "@types/glob": "^5.0.33",
     "@types/node": "^8.0.31",
     "@types/resolve": "^0.0.4",
