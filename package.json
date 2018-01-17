@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/glob": "^5.0.33",
     "@types/node": "^9.3.0",
-    "@types/resolve": "^0.0.5",
+    "@types/resolve": "^0.0.6",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.5.3"
