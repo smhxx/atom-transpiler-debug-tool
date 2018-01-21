@@ -1,7 +1,8 @@
 [![Travis](https://img.shields.io/travis/smhxx/atom-transpiler-debug-tool/master.svg)](https://travis-ci.org/smhxx/atom-transpiler-debug-tool)
 [![Version](https://img.shields.io/npm/v/atom-transpiler-debug-tool.svg)](https://www.npmjs.com/package/atom-transpiler-debug-tool)
 [![Downloads](https://img.shields.io/npm/dt/atom-transpiler-debug-tool.svg)](https://www.npmjs.com/package/atom-transpiler-debug-tool)
-[![Greenkeeper](https://badges.greenkeeper.io/smhxx/atom-transpiler-debug-tool.svg)](https://greenkeeper.io/)
+[![Dependencies](https://david-dm.org/smhxx/atom-transpiler-debug-tool/status.svg)](https://david-dm.org/smhxx/atom-transpiler-debug-tool)
+[![DevDependencies](https://david-dm.org/smhxx/atom-transpiler-debug-tool/dev-status.svg)](https://david-dm.org/smhxx/atom-transpiler-debug-tool?type=dev)
 # atom-transpiler-debug-tool
 
 This package is a small debugging utility intended for use with [Atom](https://atom.io/) packages which rely on Atom's "custom transpiler" feature. When installed, it can analyze your package's configuration to determine which files are associated with each custom transpiler it relies on, as well as the current state of the compile cache for each source file. This analysis can help shed light on unexpected behavior and determine whether your package is configured properly.

@@ -34,5 +34,19 @@
     "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.5.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "renovate": {
+    "extends": [
+      "config:base",
+      ":preserveSemverRanges",
+      ":prNotPending"
+    ],
+    "assignees": [
+      "smhxx"
+    ],
+    "labels": [
+      "dependencies"
+    ],
+    "semanticCommitScope": "package"
+  }
 }
