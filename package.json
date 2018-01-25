@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
-    "lint": "tslint -p src/tsconfig.json --type-check",
+    "lint": "tslint -p src/tsconfig.json",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -34,19 +34,5 @@
     "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.5.3"
   },
-  "license": "MIT",
-  "renovate": {
-    "extends": [
-      "config:base",
-      ":preserveSemverRanges",
-      ":prNotPending"
-    ],
-    "assignees": [
-      "smhxx"
-    ],
-    "labels": [
-      "dependencies"
-    ],
-    "semanticCommitScope": "package"
-  }
+  "license": "MIT"
 }
