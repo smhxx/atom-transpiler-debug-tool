@@ -34,7 +34,8 @@ if (unmatched.directories.size > 0 || unmatched.files.size > 0) {
 const knownKeys = Transpiler.getKnownCacheKeys().size;
 const unknownKeys = Package.cachedFiles.size - knownKeys;
 if (unknownKeys > 0) {
-  console.log(`${unknownKeys} additional outdated entries were also found in the cache.`);
+  const plural = unknownKeys > 1;
+  console.log(`${unknownKeys} additional outdated entr${plural? 'ies were' : 'y was'} also found in the cache.`);
 } else {
   console.log('No outdated entries were found in the cache.');
 }
