@@ -35,7 +35,8 @@ const knownKeys = Transpiler.getKnownCacheKeys().size;
 const unknownKeys = Package.cachedFiles.size - knownKeys;
 if (unknownKeys > 0) {
   const plural = unknownKeys > 1;
-  console.log(`${unknownKeys} additional outdated entr${plural? 'ies were' : 'y was'} also found in the cache.`);
+  // tslint:disable-next-line max-line-length
+  console.log(`${unknownKeys} additional outdated entr${plural ? 'ies were' : 'y was'} also found in the cache.`);
 } else {
   console.log('No outdated entries were found in the cache.');
 }
