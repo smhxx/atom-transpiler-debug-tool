@@ -17,5 +17,21 @@ notifications:
     on_success: change
     on_failure: always
 
-script:
-  - npm run lint
+stages:
+  - Linting
+  - name: Deployment
+    if: branch = master
+
+jobs:
+  include:
+
+    - stage: Linting
+      script:
+        - npm run lint
+
+    - stage: Deployment
+      env:
+        - secure: c4XAOCP9SXYry96O6RkpNqTYWBaphoUlXaq+qzgftmC0ApDVbgB3ktuiwSqoSWrNIpqedVR/F2Yw6wer5O87qN5PlEha7u4RkEQCsUco9BX+aMEi0YTRy8QcRqo3Dp/7uuO/kZZOCTJn/xk+xiSkA4G4JflNV69SkkAW9SfcUZ78vkjiOPAnUTiWMlxyZ8Xb7SxUboFufvlr62TTeOHojjgkv1aSFnVdflJ8dT7AHyvw9dy5OUqyaOtrjwex3T9cuHxGGzbF4ervmTR+Cgo6p6TPDLts2950kxVc8VL6uYG5vR/FsGBDdS7S0+0V7NyHW0i9w4ySxSgwnF/x1NhxXbsb4Isv9cJiZdInYFDnq59gAX7XQ+gEmkAPJoGB8gA5pbHFDrMkKt8jNhdRlqtuOnOec3m5vwrK8yPPZ/YEwKpq4S71Y8hk2WOYySlePsdRlJjRaB1hHEEN591qvNlQUufttsavgLx3MWQaxmdxtetDtJct4lS5drgKvY+tFmLisYyXra1CCvfPjzw4rMpxE217opQ+pS2bYnI/y5eSCP3nVDyqBlK2vAXXswnA8jM1mVtoSKGpXBY/853Tf64z0n/tSXTVeGVJuAEi0dOF0f9NDaT6tugNRXD58eKF76hXi8tkURH/pISjW9SdseuDhPjBMZtdvgyloye7hSWYXic=
+        - secure: fj0YCLjlNgaNy3p/kATtmVXc99FD9XxXSFCO/p9LvulOPWH7jhMZFFHzLhSg9xZtESVVd7hOgQ+yHSUszCtK6UnmllErcVear5Ec3NgvY5fdEi6uKpJwJiOLlH6Lf6v6DMlQhVFXou8OdyeaAdHEtBe3NQ9jina003/fcqEHlgxRycoX7jx0Hjtql4dFJ3Or4geo+gOkk5gi+nl7O5Z/Hip+Dvdu55UB8P/4i5IvpyRyBnh6Df7naHVNH6ZT9vCAwoRZK8YDOUkts776ShK1CxrkZzRrYoVL21OAgCvVGTqTK+GDawOPMYDgF5oqRN7oxkQs7i2Ay5b19h01tCvRAw279R/3SYbs0URREQHpwFgDbiNQfJ829QqZtpBuWYeNa6EJUmKjhHHYM9nHE/Jnv9w5GD7pttkGrGKZOrUnBqdQf4/BlfoqmRbEmAH+Jl53WUYp++ejxCduJgwQ172/TKd2ZjW9G91KoWZPbo9QnBus6VVJH6Bp1S32tZIiZQbmCVv55w7KRVJgtabFVPP/5uZ20XRva2FmcDlLdVHg5fNBdKdk+D0TwY06NRkXMBtvRnZ5+CZpxf81GdiR874N1vU+K+jzaS92CqDnkiyDnwgAXt7VkNEQkEKYZJYVtgNvz7Lu8YXnv7klk9e5b+TkJARVJUbWU3hEeIK2TOxaybE=
+      script:
+        - npm run deploy

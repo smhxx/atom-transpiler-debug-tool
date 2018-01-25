@@ -18,6 +18,7 @@
   },
   "scripts": {
     "build": "tsc -p src/tsconfig.json",
+    "deploy": "semantic-release",
     "lint": "tslint -p src/tsconfig.json",
     "prepublishOnly": "npm run build"
   },
@@ -27,12 +28,51 @@
     "resolve": "^1.4.0"
   },
   "devDependencies": {
+    "@semantic-release/git": "^2.0.2",
     "@types/glob": "^5.0.33",
     "@types/node": "^9.3.0",
     "@types/resolve": "^0.0.6",
+    "semantic-release": "^12.2.2",
     "tslint": "^5.7.0",
     "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.5.3"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "release": {
+    "analyzeCommits": {
+      "preset": "angular",
+      "releaseRules": [
+        {
+          "breaking": true,
+          "release": "major"
+        },
+        {
+          "type": "feat",
+          "release": "minor"
+        },
+        {
+          "type": "fix",
+          "release": "patch"
+        },
+        {
+          "type": "perf",
+          "release": "patch"
+        },
+        {
+          "type": "refactor",
+          "release": "patch"
+        },
+        {
+          "type": "docs",
+          "scope": "README",
+          "release": "patch"
+        }
+      ]
+    },
+    "publish": [
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/github"
+    ]
+  }
 }
