@@ -25,7 +25,7 @@
   "dependencies": {
     "chalk": "^2.2.0",
     "glob": "^7.1.2",
-    "resolve": "^1.4.0"
+    "resolve": "^1.0.0"
   },
   "devDependencies": {
     "@semantic-release/git": "^2.0.2",
