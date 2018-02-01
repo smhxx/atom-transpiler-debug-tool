@@ -31,7 +31,7 @@
     "@semantic-release/git": "^3.0.0",
     "@types/glob": "^5.0.0",
     "@types/node": "^9.0.0",
-    "@types/resolve": "^0.0.1",
+    "@types/resolve": "^0.0.6",
     "semantic-release": "^13.0.0",
     "tslint": "^5.0.0",
     "tslint-config-airbnb": "^5.0.0",
