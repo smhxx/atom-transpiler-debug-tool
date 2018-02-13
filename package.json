@@ -32,7 +32,7 @@
     "@types/glob": "^5.0.0",
     "@types/node": "^9.0.0",
     "@types/resolve": "^0.0.6",
-    "semantic-release": "^13.0.0",
+    "semantic-release": "^14.0.0",
     "tslint": "^5.0.0",
     "tslint-config-airbnb": "^5.0.0",
     "typescript": "^2.0.0"
