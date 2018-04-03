@@ -37,7 +37,6 @@ export default class Transpiler {
   readonly options: object = {};
   readonly module: CacheKeyProvider;
   readonly matches: ReadonlyArray<FileMatch>;
-  readonly header: (index: number, max: number) => string;
 
   private static instances: ReadonlyArray<Transpiler>;
 
