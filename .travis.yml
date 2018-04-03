@@ -25,9 +25,10 @@ stages:
 jobs:
   include:
 
-    - stage: Linting
+    - stage: Lint/Build
       script:
         - npm run lint
+        - npm run build
 
     - stage: Deployment
       env:
