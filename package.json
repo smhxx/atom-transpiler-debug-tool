@@ -28,7 +28,7 @@
     "resolve": "1.6.0"
   },
   "devDependencies": {
-    "@semantic-release/git": "4.0.3",
+    "@semantic-release/git": "5.0.0",
     "@types/glob": "5.0.35",
     "@types/node": "9.6.13",
     "@types/resolve": "0.0.8",
