@@ -20,7 +20,7 @@ export default class FileMatch {
 
   constructor(path: string, getHash: HashProvider) {
     this.path = path;
-    this.displayPath = path.replace(/\\/g,'/');
+    this.displayPath = path.replace(/\\/g, '/');
     this.source = readFileSync(path, 'utf8').toString();
     this.cacheKey = getHash(this);
     this.isCached = Package.cachedFiles.has(this.cacheKey);

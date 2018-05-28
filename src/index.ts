@@ -10,7 +10,7 @@ function logAll(iterator: Readonly<Iterable<string>>, style?: Chalk) {
   }
 }
 
-const denormalize = (path: string) => path.replace(/\\/g,'/');
+const denormalize = (path: string) => path.replace(/\\/g, '/');
 
 const projectDir = new Directory();
 const matchInfo = Transpiler.getGlobMatchInfo();
