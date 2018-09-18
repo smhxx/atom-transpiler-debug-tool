@@ -25,7 +25,7 @@ function resolveConfig(): Readonly<AtomPackageConfig> {
 }
 
 function getCachedFiles(): Set<string> {
-  const base = resolve(homedir(), `.atom/compile-cache/package-transpile`);
+  const base = resolve(homedir(), '.atom/compile-cache/package-transpile');
   const cacheDir = join(base, Package.name);
   try {
     assert(statSync(cacheDir).isDirectory());
