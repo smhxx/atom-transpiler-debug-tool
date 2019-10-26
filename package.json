@@ -28,11 +28,11 @@
     "resolve": "1.6.0"
   },
   "devDependencies": {
-    "@semantic-release/git": "7.0.16",
+    "@semantic-release/git": "7.0.17",
     "@types/glob": "7.1.1",
     "@types/node": "12.11.7",
     "@types/resolve": "0.0.8",
-    "semantic-release": "15.13.27",
+    "semantic-release": "15.13.28",
     "tslint": "5.20.0",
     "tslint-config-airbnb": "5.11.2",
     "typescript": "3.6.4"
