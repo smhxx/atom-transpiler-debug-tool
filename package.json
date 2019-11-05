@@ -33,7 +33,7 @@
     "@types/node": "12.12.5",
     "@types/resolve": "0.0.8",
     "semantic-release": "15.13.30",
-    "tslint": "5.20.0",
+    "tslint": "5.20.1",
     "tslint-config-airbnb": "5.11.2",
     "typescript": "3.7.2"
   },
