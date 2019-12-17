@@ -30,7 +30,7 @@
   "devDependencies": {
     "@semantic-release/git": "7.0.18",
     "@types/glob": "7.1.1",
-    "@types/node": "12.12.19",
+    "@types/node": "12.12.20",
     "@types/resolve": "0.0.8",
     "semantic-release": "15.13.31",
     "tslint": "5.20.1",
