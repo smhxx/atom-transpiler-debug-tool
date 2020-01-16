@@ -35,7 +35,7 @@
     "semantic-release": "16.0.2",
     "tslint": "5.20.1",
     "tslint-config-airbnb": "5.11.2",
-    "typescript": "3.7.4"
+    "typescript": "3.7.5"
   },
   "license": "MIT",
   "release": {
