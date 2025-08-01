@@ -6499,9 +6499,9 @@
       "dev": true
     },
     "typescript": {
-      "version": "4.2.3",
-      "resolved": "https://registry.npmjs.org/typescript/-/typescript-4.2.3.tgz",
-      "integrity": "sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==",
+      "version": "5.9.2",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.2.tgz",
+      "integrity": "sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==",
       "dev": true
     },
     "uglify-js": {
